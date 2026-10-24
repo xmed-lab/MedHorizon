@@ -1,0 +1,7 @@
+# Optional reference inference environment, matching the source workspace.
+# Install a torch/torchvision build appropriate for your hardware first.
+ms-swift==4.0.1
+transformers==4.57.3
+qwen-vl-utils==0.0.14
+decord>=0.6,<0.7
+accelerate>=1.0,<2

@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "Please cite the MedHorizon paper when using this benchmark."
+type: software
+title: "MedHorizon: Towards Long-context Medical Video Understanding in the Wild"
+version: 0.1.0
+date-released: 2026-10-24
+url: "https://github.com/xmed-lab/MedHorizon"
+repository-code: "https://github.com/xmed-lab/MedHorizon"
+authors:
+  - family-names: Du
+    given-names: Bodong
+  - family-names: Liu
+    given-names: Bowen
+  - family-names: Yu
+    given-names: Yang
+  - family-names: Ding
+    given-names: Xinpeng
+  - family-names: Wu
+    given-names: Zhiheng
+  - family-names: Wang
+    given-names: Shuning
+  - family-names: Nie
+    given-names: Shuo
+  - family-names: Liu
+    given-names: Naiming
+  - family-names: Chen
+    given-names: Qifeng
+  - family-names: Song
+    given-names: Yangqiu
+  - family-names: Li
+    given-names: Xiaomeng
+identifiers:
+  - type: doi
+    value: 10.48550/arXiv.2605.06537

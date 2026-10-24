@@ -1,0 +1,63 @@
+{
+  "videos": 340,
+  "questions": 1253,
+  "sources": {
+    "autolaparo": 20,
+    "galar": 44,
+    "grasp": 13,
+    "multibypass": 125,
+    "pitvqa": 10,
+    "real_colon": 39,
+    "tmvp": 59,
+    "us_study": 30
+  },
+  "questions_by_source": {
+    "autolaparo": 44,
+    "galar": 60,
+    "grasp": 112,
+    "multibypass": 403,
+    "pitvqa": 13,
+    "real_colon": 251,
+    "tmvp": 340,
+    "us_study": 30
+  },
+  "questions_by_task": {
+    "PR": 517,
+    "SD": 112,
+    "RL": 60,
+    "BPQ": 39,
+    "LLS": 39,
+    "Site": 47,
+    "Hist": 47,
+    "Size": 47,
+    "IR": 235,
+    "WR": 26,
+    "RSR": 26,
+    "CPR": 26,
+    "LA": 32
+  },
+  "questions_by_capability": {
+    "Fine-grained Understanding": 908,
+    "Semantic Reasoning": 345
+  },
+  "answer_distribution": {
+    "A": 309,
+    "B": 303,
+    "C": 319,
+    "D": 322
+  },
+  "annotation_duration_hours": 977.5769431802172,
+  "annotations_sha256": "7ef93890c929374dfc5f2ee795cf53618b6169d1cfa2b22b41a9d6454de9c284",
+  "evidence_sha256": "dc03a0874e0640dc0ac0e1b40c9ab3f51f4fc046b851c44dbc2c9c87a83efe92",
+  "annotation_source": "https://huggingface.co/datasets/DBD123/MedHorizon",
+  "release_date": "2026-10-24",
+  "paper_reported_hours": 759,
+  "evidence_source": "analysis/analysis_experiment/sparse/question_evidence_windows_plus_us.json",
+  "evidence_source_sha256": "2232343ef19d2d2fde1944511bd2957449623602fe18a47255cacb9e27ad9362",
+  "notes": [
+    "Annotation bytes match the public Hugging Face release.",
+    "Evidence joined by uid; answers, source keys and all 13 task assignments verified before export.",
+    "Evidence export removes original absolute paths and duplicate question/answer text, retaining support modes and windows.",
+    "Annotation metadata hours differ from the paper-reported decoded hours; see docs/data.md."
+  ]
+}

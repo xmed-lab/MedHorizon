@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MedHorizon | Long-context Medical Video Understanding</title>
+  <meta name="description" content="MedHorizon is an in-the-wild benchmark for sparse evidence retrieval and multi-hop reasoning over full-procedure medical videos." />
+  <meta property="og:title" content="MedHorizon" />
+  <meta property="og:description" content="759 hours, 340 full-procedure videos, and 1,253 evidence-grounded QA pairs for medical long-video understanding." />
+  <meta property="og:image" content="assets/figures_0507/into_fig_0505_cropped.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <nav class="nav wrap">
+      <a class="brand" href="#top"><span></span>MedHorizon</a>
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#benchmark">Benchmark</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#analysis">Analysis</a>
+      </div>
+    </nav>
+
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="kicker">Long-context Medical Video Benchmark</p>
+        <h1>MedHorizon</h1>
+        <p class="tagline">Towards long-context medical video understanding in the wild.</p>
+        <p class="lead">MedHorizon evaluates whether multimodal models can search raw, redundant clinical videos for sparse and subtle evidence, bind it to anatomical and temporal context, and answer multi-hop clinical questions over full procedures.</p>
+        <div class="button-row">
+          <a class="button" href="https://arxiv.org/abs/2605.06537" target="_blank" rel="noopener">Paper</a>
+          <a class="button" href="https://github.com/xmed-lab/MedHorizon" target="_blank" rel="noopener">GitHub</a>
+          <a class="button" href="https://huggingface.co/datasets/DBD123/MedHorizon" target="_blank" rel="noopener">Hugging Face</a>
+          <a class="button secondary" href="#leaderboard">Leaderboard</a>
+        </div>
+      </div>
+      <aside class="stat-card" aria-label="dataset statistics">
+        <div class="big-stat"><strong>0.166%</strong><span>mean question-level evidence ratio</span></div>
+        <div class="stat-grid">
+          <div><strong>759h</strong><span>paper-reported video hours</span></div>
+          <div><strong>340</strong><span>procedures</span></div>
+          <div><strong>1,253</strong><span>QA pairs</span></div>
+          <div><strong>8</strong><span>datasets</span></div>
+        </div>
+      </aside>
+    </section>
+  </header>
+
+  <main>
+    <section class="wrap figure-hero" id="overview">
+      <img src="assets/figures_0507/into_fig_0505_cropped.jpg" alt="MedHorizon overview showing natural versus medical long-video evidence, evidence sparsity, and in-the-wild multi-hop query construction" />
+      <p class="caption">Benchmark overview: MedHorizon targets sparse, subtle, and homogeneous evidence in medical long videos, and evaluates full-procedure retrieval plus multi-hop clinical reasoning rather than pre-cut clip QA.</p>
+    </section>
+
+    <section class="wrap section challenge">
+      <div class="section-title">
+        <p class="kicker">Core Claim</p>
+        <h2>Medical long videos are not just longer natural videos.</h2>
+      </div>
+      <div class="claim-grid">
+        <article>
+          <h3>Sparse Evidence</h3>
+          <p>Decisive cues occupy only 1.7 frames per 1,000 video frames on average. Models must retrieve weak evidence before reasoning.</p>
+        </article>
+        <article>
+          <h3>Subtle Findings</h3>
+          <p>Answer-relevant details can be small lesions, instruments, anatomical regions, or local quality cues that are hard to distinguish from nearby frames.</p>
+        </article>
+        <article>
+          <h3>Homogeneous Streams</h3>
+          <p>Long clinical procedures contain many visually similar frames, making attention and sampling drift toward redundant but non-decisive content.</p>
+        </article>
+        <article>
+          <h3>Context-dependent Queries</h3>
+          <p>Semantic questions require locating events, binding them to clinical context, and aggregating observations across distant moments.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="band" id="benchmark">
+      <div class="wrap two-col">
+        <div>
+          <p class="kicker">Benchmark Construction</p>
+          <h2>Evidence-grounded full-procedure evaluation.</h2>
+          <p>MedHorizon is built from 8 public medical video sources spanning diagnostic examination and surgery. The construction pipeline collects source annotations, retrieves evidence from full videos, filters ambiguous candidates, strengthens distractors, rewrites questions into natural clinical language, and applies human-in-the-loop verification.</p>
+        </div>
+        <figure class="paper-card">
+          <img src="assets/figures_0507/pipeline.jpg" alt="MedHorizon benchmark construction pipeline" />
+          <figcaption>Construction pipeline used in the latest manuscript.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="wrap section">
+      <div class="section-title compact">
+        <p class="kicker">Dataset Coverage</p>
+        <h2>Long-tailed procedures and heterogeneous QA density.</h2>
+      </div>
+      <div class="triple-figures">
+        <figure class="paper-card"><img src="assets/figures_0507/category.jpg" alt="Video category distribution" /><figcaption>Video category.</figcaption></figure>
+        <figure class="paper-card"><img src="assets/figures_0507/duration_distri.jpg" alt="Video duration distribution" /><figcaption>Video duration distribution.</figcaption></figure>
+        <figure class="paper-card"><img src="assets/figures_0507/qa_density.jpg" alt="QA density by source dataset" /><figcaption>QA density across source datasets.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="wrap section demo-section">
+      <div class="section-title compact">
+        <p class="kicker">Task Examples</p>
+        <h2>Fine-grained understanding and semantic reasoning.</h2>
+      </div>
+      <figure class="paper-card wide-figure">
+        <img src="assets/figures_0507/mlvbench_demo_0506_cropped.jpg" alt="Representative MedHorizon tasks across fine-grained understanding and semantic reasoning" />
+        <figcaption>Representative video-question pairs from the manuscript.</figcaption>
+      </figure>
+    </section>
+
+    <section class="wrap section taxonomy-row">
+      <div class="taxonomy-text">
+        <p class="kicker">Task Taxonomy</p>
+        <h2>Two axes of evaluation.</h2>
+        <p><strong>Fine-grained understanding</strong> covers PR, SD, RL, BPQ, LLS, Site, Hist, and Size. <strong>Semantic reasoning</strong> covers IR, WR, RSR, CPR, and LA, increasing from one-hop visual-semantic recognition to three-hop aggregation over distributed observations.</p>
+      </div>
+      <figure class="paper-card taxonomy-card">
+        <img src="assets/figures_0507/capability_taxonomy.jpg" alt="MedHorizon capability taxonomy" />
+      </figure>
+    </section>
+
+    <section class="wrap section" id="leaderboard">
+      <div class="section-title">
+        <p class="kicker">Main Results</p>
+        <h2>Current models remain far from robust full-procedure understanding.</h2>
+        <p>In the reported benchmark experiments, the strongest evaluated model reaches only <strong>41.1%</strong> overall accuracy. Most open-source and medical MLLMs remain around the mid-20s, revealing a gap between short-video competence and full-procedure clinical reasoning.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Rank</th><th>Model</th><th>Family</th><th>Input</th><th>Overall Acc.</th></tr></thead>
+          <tbody>
+            <tr class="top"><td>1</td><td>Gemini-3.1-Pro-Preview</td><td>Closed-source MLLM</td><td>1 FPS</td><td>41.1</td></tr>
+            <tr><td>2</td><td>GPT-5.4</td><td>Closed-source MLLM</td><td>1 FPS</td><td>32.6</td></tr>
+            <tr><td>3</td><td>GPT-5.4-mini</td><td>Closed-source MLLM</td><td>1 FPS</td><td>31.2</td></tr>
+            <tr><td>4</td><td>LLaVA-Video-72B</td><td>Open-source MLLM</td><td>1 FPS</td><td>29.4</td></tr>
+            <tr><td>5</td><td>Kimi-K2.5</td><td>Closed-source MLLM</td><td>1 FPS</td><td>29.3</td></tr>
+            <tr><td>6</td><td>WFS-SB</td><td>Specialized long-video method</td><td>128</td><td>28.1</td></tr>
+            <tr><td>7</td><td>Qwen3.5-Plus</td><td>Closed-source MLLM</td><td>1 FPS</td><td>28.1</td></tr>
+            <tr><td>8</td><td>Lingshu-32B</td><td>Medical MLLM</td><td>1 FPS</td><td>27.9</td></tr>
+            <tr><td>9</td><td>InternVL3.5-8B</td><td>Open-source MLLM</td><td>64</td><td>27.0</td></tr>
+            <tr><td>10</td><td>Hulu-Med-7B</td><td>Medical MLLM</td><td>1 FPS</td><td>26.2</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="band" id="analysis">
+      <div class="wrap section-title analysis-title">
+        <p class="kicker">Diagnostic Analysis</p>
+        <h2>Four research questions from the latest manuscript.</h2>
+      </div>
+      <div class="wrap analysis-grid">
+        <article class="analysis-card">
+          <div class="rq">RQ1</div>
+          <h3>Frame scaling is unreliable.</h3>
+          <p>More sampled frames do not yield monotonic gains. Extra context can introduce near-duplicate anatomy, low-information segments, and visually similar distractors.</p>
+          <img src="assets/figures_0507/frame.jpg" alt="Frame-scaling performance under different sampled-frame budgets" />
+        </article>
+        <article class="analysis-card wide">
+          <div class="rq">RQ2</div>
+          <h3>Retrieval and interpretation both fail.</h3>
+          <p>Text-only accuracy stays near random; uniform full-video sampling gives limited gains; oracle GT-images improve performance but still remain below diagnostic reliability.</p>
+          <img src="assets/figures_0507/E7.jpg" alt="Diagnostic breakdown under random, text-only, uniform, and GT-image settings" />
+        </article>
+        <article class="analysis-card">
+          <div class="rq">RQ3a</div>
+          <h3>Procedural chronology is weakly used.</h3>
+          <p>Order perturbation hurts performance only modestly, suggesting current models capture coarse temporal cues but not robust procedural structure.</p>
+          <img src="assets/figures_0507/e1.jpg" alt="Temporal order perturbation analysis" />
+        </article>
+        <article class="analysis-card wide">
+          <div class="rq">RQ3b</div>
+          <h3>Attention drifts under redundancy.</h3>
+          <p>Frame- and patch-level attention stays diffuse across similar content instead of concentrating on sparse answer-relevant evidence.</p>
+          <img src="assets/figures_0507/attn.jpg" alt="Attention distribution and similarity at frame and patch level" />
+        </article>
+        <article class="analysis-card wide last">
+          <div class="rq">RQ4</div>
+          <h3>Generic sampling trades local detail for global coverage.</h3>
+          <p>Uniform sampling is stable but evidence-agnostic. Change-focused and specialized samplers help selected local tasks, but improvements remain modest and task-dependent.</p>
+          <img src="assets/figures_0507/e2_nocrop.jpg" alt="Sampling strategy comparison for overall shift and task-level profile" />
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section release" id="release">
+      <div>
+        <p class="kicker">Release</p>
+        <h2>Dataset and evaluation code.</h2>
+        <p>See the repository data notes for evidence provenance and the difference between paper-reported hours and inherited duration metadata.</p>
+        <p>The Hugging Face release provides the evaluation-only test split, relative video paths, and full US-Study videos. The GitHub repository includes test annotations, evidence metadata, evaluation tools, reported results, and project page source.</p>
+      </div>
+      <div class="button-row end">
+        <a class="button" href="https://huggingface.co/datasets/DBD123/MedHorizon" target="_blank" rel="noopener">Dataset</a>
+        <a class="button secondary" href="https://github.com/xmed-lab/MedHorizon" target="_blank" rel="noopener">Code</a>
+      </div>
+    </section>
+
+    <section class="wrap section citation" id="citation">
+      <p class="kicker">Citation</p>
+      <h2>Cite MedHorizon.</h2>
+      <pre><code>@article{du2026medhorizon,
+  title={MedHorizon: Towards Long-context Medical Video Understanding in the Wild},
+  author={Du, Bodong and Liu, Bowen and Yu, Yang and Ding, Xinpeng and Wu, Zhiheng
+          and Wang, Shuning and Nie, Shuo and Liu, Naiming and Chen, Qifeng
+          and Song, Yangqiu and Li, Xiaomeng},
+  journal={arXiv preprint arXiv:2605.06537},
+  year={2026},
+  url={https://arxiv.org/abs/2605.06537}
+}
+</code></pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner"><span>MedHorizon</span><a href="#top">Back to top</a></div>
+  </footer>
+</body>
+</html>
